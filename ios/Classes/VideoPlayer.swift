@@ -71,9 +71,12 @@ class VideoPlayer: NSObject, FlutterPlugin, FlutterStreamHandler, FlutterPlatfor
     var subtitle:String = ""
     var isLiveStream:Bool = false
     var showControls:Bool = false
+    var mediaPosition = 0.0
 
     private var mediaDuration = 0.0
-    
+
+
+
     private var isPlaying = false
     private var timeObserverToken:Any?
     
@@ -177,6 +180,10 @@ class VideoPlayer: NSObject, FlutterPlugin, FlutterStreamHandler, FlutterPlatfor
             else if ("pause" == call.method) {
                 self.pause()
             }
+
+             else if ("seekTo" == call.method) {
+                            self.player?.seek(to: CMTime(seconds: 400, preferredTimescale: CMTimeScale(NSEC_PER_SEC)))
+                        }
             
             /* dispose */
             else if ("dispose" == call.method) {

@@ -47,10 +47,10 @@ class Video extends StatefulWidget {
       : super(key: key);
 
   @override
-  _VideoState createState() => _VideoState();
+  VideoState createState() => VideoState();
 }
 
-class _VideoState extends State<Video> {
+class VideoState extends State<Video> {
   MethodChannel _methodChannel;
   int _platformViewId;
   Widget _playerWidget = Container();
