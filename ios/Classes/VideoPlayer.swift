@@ -183,7 +183,9 @@ class VideoPlayer: NSObject, FlutterPlugin, FlutterStreamHandler, FlutterPlatfor
 
              else if ("seekTo" == call.method) {
               print("seekTo")
-                            self.player?.seek(to: CMTime(seconds: 400, preferredTimescale: CMTimeScale(NSEC_PER_SEC)))
+                         //   self.player?.seek(to: CMTime(seconds: 400, preferredTimescale: CMTimeScale(NSEC_PER_SEC)))
+                let targetTime:CMTime = CMTimeMake(value: Int64(400), timescale: 1)
+                   self.player?.seek(to: targetTime)
                         }
             
             /* dispose */
