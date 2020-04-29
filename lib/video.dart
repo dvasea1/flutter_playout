@@ -201,7 +201,7 @@ class _VideoState extends State<Video> {
   }
 
   void _onSeekPositionChanged() async {
-    if (_methodChannel != null && !Platform.isIOS) {
+    if (_methodChannel != null) {
       _methodChannel.invokeMethod("seekTo", {"position": widget.position});
     }
   }
